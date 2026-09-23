@@ -1,6 +1,13 @@
 # VelaMux for macOS
 
 **[下载 ZIP 安装包 (Releases)](https://github.com/ochikoi/VelaMux-macOS/releases)**
+最新版本：**VelaMux 2026.09.23**（二进制移植包，Apple Silicon / macOS 27）。
+
+- [下载新版 ZIP](https://github.com/ochikoi/VelaMux-macOS/releases/download/v2026.09.23/VelaMux-Portable-macOS27-arm64-20260923.zip)
+- [下载 SHA256 校验文件](https://github.com/ochikoi/VelaMux-macOS/releases/download/v2026.09.23/VelaMux-Portable-macOS27-arm64-20260923.zip.sha256)
+
+旧版用户安装新版前，请先保存需要的连接信息，并单独保留新版安装包；阅读旧移植包中“彻底卸载 VelaMuxPortable.command”的删除清单后，运行该命令彻底卸载旧版，再解压并安装新版。不支持直接覆盖升级。卸载会删除本地配置和凭据。
+
 
 VelaMux 是一个面向 MCP 兼容 AI Agent 的 macOS 计算机控制运行环境。
 
