@@ -1,6 +1,7 @@
 # VelaMux for macOS
 
 **[下载 ZIP 安装包 (Releases)](https://github.com/ochikoi/VelaMux-macOS/releases)**
+
 最新版本：**VelaMux 2026.09.23**（二进制移植包，Apple Silicon / macOS 27）。
 
 - [下载新版 ZIP](https://github.com/ochikoi/VelaMux-macOS/releases/download/v2026.09.23/VelaMux-Portable-macOS27-arm64-20260923.zip)
