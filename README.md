@@ -1,114 +1,70 @@
 # VelaMux for macOS
 
-**[下载 ZIP 安装包 (Releases)](https://github.com/ochikoi/VelaMux-macOS/releases)**
+**[Download the latest release](https://github.com/ochikoi/VelaMux-macOS/releases/latest)**
 
-最新版本：**VelaMux 2026.10.04**（二进制移植包，Apple Silicon / macOS 27）。
+VelaMux lets AI agents operate macOS app windows in the background. The AI can click, type, scroll, drag and use menus and dialogs in a window while you keep using your Mac: your real mouse pointer doesn't move and your foreground app keeps focus.
 
-- [下载新版 ZIP](https://github.com/ochikoi/VelaMux-macOS/releases/download/v2026.10.04/VelaMux-Portable-macOS27-arm64-20261004-184819.zip)
-- [下载 SHA256 校验文件](https://github.com/ochikoi/VelaMux-macOS/releases/download/v2026.10.04/VelaMux-Portable-macOS27-arm64-20261004-184819.zip.sha256)
+It works with any MCP-compatible AI client, such as Claude Code, Codex or ChatGPT.
 
-旧版用户安装新版前，请先保存需要的连接信息，并单独保留新版安装包；阅读旧移植包中“彻底卸载 VelaMuxPortable.command”的删除清单后，运行该命令彻底卸载旧版，再解压并安装新版。不支持直接覆盖升级。卸载会删除本地配置和凭据。
+## Features
 
+- **Background control**: the AI works in its own window without taking over your mouse, keyboard or foreground app.
+- **Accurate pixel clicking**: each AI client is calibrated once automatically, so clicks land where the model intends. A ruler mode is also available.
+- **Menus, dialogs and file panels**: popup menus, sheets, save dialogs and file pickers are included in screenshots and can be operated directly.
+- **Visible virtual pointer**: an animated on-screen pointer shows where the AI is acting and whether it is working or idle.
+- **All common actions**: click, right-click, typing, keyboard shortcuts, scrolling, dragging and long press, plus batches of steps in one call.
+- **One instance per AI client**: install separate copies for different clients, each with its own port and settings.
+- **Local or cloud**: use it on this Mac only, or connect it to a cloud agent through your own private tunnel.
 
-**VelaMux 是一款专为纯视觉操作优化的 macOS Computer Use 插件。** AI 可以在后台操作应用窗口、菜单和弹窗，不移动真实鼠标，也不抢占前台窗口的焦点，让你在 AI 工作时继续正常使用 Mac。
+## Requirements
 
-默认使用经过自动校准的像素点击模式，大幅提升点击精度；同时支持标尺模式，适应不同客户端的截图分辨率和显示尺寸。
+- Apple Silicon Mac
+- macOS 27
 
-VelaMux 还提供丰富的虚拟鼠标移动动画和待机动画，让 AI 的操作位置与工作状态清晰可见。支持点击、输入、滚动、拖动和快捷键等常用操作，可接入兼容 MCP 的 AI 客户端。
+Other macOS versions and Intel Macs have not been fully tested.
 
-## 二进制发行版
+Everything needed is included in the download. You don't need to install Xcode, Homebrew or Python.
 
-本仓库提供 VelaMux 面向 macOS 的预编译二进制发行版本。
+## Install
 
-发行包中包含运行 VelaMux 所需要的主要组件，包括：
+1. Download the ZIP from [Releases](https://github.com/ochikoi/VelaMux-macOS/releases/latest) and extract it.
+2. Double-click **Install VelaMux.command**.
+3. Choose **Local install only** (or **Local + cloud install** if you want cloud access).
+4. Enter a name for the AI client you'll use, such as `Claude Code`, and press Return to accept the suggested port.
+5. Follow the prompts to grant permissions (see below). The installer then runs a short live test in its own test window.
+6. Add the MCP address shown at the end (usually `http://127.0.0.1:18792/mcp`) to your AI client.
 
-* VelaMux Host
-* MCP 脚本与运行环境
-* 安装与卸载工具
-* VelaMux 所需资源
-* 独立 Python 3.12 运行时
-* 云端连接相关组件
+The download is not notarized by Apple. If macOS says it cannot verify the developer, go to **System Settings > Privacy & Security** and click **Open Anyway**.
 
-当前 VelaMux 主程序 Host 以预编译二进制形式提供，Swift 主程序源码目前尚未公开。
+## Permissions
 
-用户无需另外安装 Xcode、Swift、Homebrew 或 Python。
+VelaMux needs **Accessibility** and **Screen Recording**. The installer asks for them and opens the right settings page; turn on the switches, then press Return in the installer window. If something isn't working yet, the installer waits so you can try again. macOS may also ask you to grant a permission to your AI client app; follow the prompt if it appears.
 
-## 系统兼容性
+You can run **Check Permissions.command** at any time to grant permissions again and repeat the live test. See [Permissions](docs/Permissions.md).
 
-当前版本主要在以下环境中完成开发和测试：
+## First use
 
-* Apple Silicon Mac
-* macOS 27
+The first time an AI client uses VelaMux, a full-screen **VelaMux Calibration** window opens and the AI clicks nine numbered markers. This happens once per client and takes under a minute. If you prefer not to calibrate, click **Use rulers instead**. See [Calibration](docs/Calibration.md).
 
-其他 macOS 版本以及 Intel Mac 目前尚未完成完整测试。
+A typical session: the AI lists windows, binds the one it should work in, then acts and checks the result from screenshots.
 
-这并不代表这些环境一定无法运行 VelaMux。较早版本的 macOS、更新版本的 macOS，以及 Intel Mac 都可以尝试运行或进行适配，但目前不能保证所有功能在这些环境中都能够直接正常工作。
+## Upgrading and uninstalling
 
-后续可以根据实际测试结果逐步补充兼容性信息。
+To remove VelaMux, double-click **Uninstall VelaMux.command**, review the list of files to be deleted, and press Return to confirm.
 
-## 安装
+Installing over an older version is not supported. To upgrade, save any connection details you need, uninstall the old version with the uninstaller from its own package, then install the new version. Uninstalling deletes local settings and credentials.
 
-从 GitHub Releases 下载最新的 VelaMux ZIP 安装包，完整解压后运行：
+## More help
 
-**安装 VelaMux.command**
-
-安装器提供以下选项：
-
-1. 仅本地安装
-2. 本地 + 云端连接
-3. 为已有本地安装追加云端连接
-4. 安装失败恢复
-5. 保留配置的同版本重装
-6. 只检查安装包
-
-普通用户**只需要下载 ZIP 文件即可安装**。
-
-Release 中同时提供 `.sha256` 校验文件，供希望验证下载文件完整性的用户使用；它不是安装所必需的。
-
-## 本地与云端连接
-
-仅本地使用 VelaMux 时，不需要 Runtime API key、Tunnel ID 或云端账号。
-
-如果需要从其他设备或云端 Agent 连接自己的 Mac，可以选择云端安装方式。
-
-云端连接需要用户自己的：
-
-* Runtime API key
-* Tunnel ID
-* 对应账号与连接权限
-
-每位用户安装的是自己的 VelaMux 实例，并连接自己的私有 MCP 服务。
-
-发布 VelaMux 安装包并不等同于将 VelaMux 提交到 ChatGPT 公共插件目录。
-
-## 权限
-
-安装器会自动发起授权请求。跟着提示，为 **VelaMux** 开启 **辅助功能** 和 **屏幕录制**，并按系统提示为实际使用的 **AI 客户端** 完成所需授权。
-
-开启权限后，回到安装器按回车继续检测；若尚未生效，安装器会停下来等待重试。系统提示需要重启 VelaMux 时，按提示完成后继续。
-
-详细步骤见 [授权引导](授权引导.md)。
+- [Permissions](docs/Permissions.md)
+- [Calibration](docs/Calibration.md)
+- [Cloud connection](docs/Cloud-Connection.md)
+- [Troubleshooting](docs/Troubleshooting.md)
 
 ## License
 
-VelaMux 原作者：
+VelaMux is created by [ochikoi](https://github.com/ochikoi) and distributed as a prebuilt binary; the source code is not currently published.
 
-**ochikoi**
+You may use, modify and redistribute VelaMux, including commercially, as long as you keep the author attribution, the source link and the license, and clearly mark modified versions. Third-party components such as Python and tunnel-client remain under their own licenses.
 
-GitHub：
-
-https://github.com/ochikoi
-
-当前版本允许在遵守 VelaMux 许可条件的情况下进行使用、商业使用、修改和再次分发。
-
-再次分发时需要保留原作者署名、来源和许可声明；修改版本需要明确注明已经修改，不得冒充原作者发布的未修改版本。
-
-VelaMux 自身许可不会覆盖 Python、tunnel-client 以及其他第三方组件，这些组件继续遵循各自的许可证。
-
-完整许可内容请参阅：
-
-`LICENSE-VelaMux.md`
-
-以及：
-
-`THIRD-PARTY-NOTICES.md`
+See [LICENSE.md](LICENSE.md) and [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).

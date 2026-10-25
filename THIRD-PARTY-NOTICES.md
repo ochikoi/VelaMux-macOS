@@ -12,6 +12,6 @@ VelaMux's own license does not replace any third-party license. Original notices
 
 The Python runtime was relocated from the developer's available runtime, not rebuilt from a fully captured bill of materials. Its linked/static native dependencies and the tunnel client's transitive dependencies require a final distributor-level audit before this complete bundle can be represented as redistribution-cleared. No missing terms have been invented or silently replaced with VelaMux's license.
 
-VelaMux pointer artwork and any other included resources also require confirmation of original ownership or applicable permission by the publisher. This packaging pass did not replace resources or binaries.
+VelaMux pointer artwork and any other included resources also require confirmation of original ownership or applicable permission by the publisher. Third-party binaries are included unchanged.
 
-This document records evidence and open items; it is not a blanket assertion that every file has completed redistribution review. See `发行检查.md` for release status.
+This document records evidence and open items; it is not a blanket assertion that every file has completed redistribution review.
